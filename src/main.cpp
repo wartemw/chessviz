@@ -6,6 +6,10 @@ enum Color {
     BLACK, WHITE
 };
 
+enum Chessman {
+    KING, QUEEN, ROOK, K_NIGHT, BISHOP, PAWN, NON
+};
+
 int main()
 {
     return 0;
