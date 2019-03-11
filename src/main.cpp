@@ -49,6 +49,10 @@ public:
     }
 };
 
+class Board {
+    
+};
+
 int main() {
     return 0;
 }
