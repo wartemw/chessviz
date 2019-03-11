@@ -11,7 +11,10 @@ enum Chessman {
 };
 
 class Cell {
-    
+private:
+    Chessman chessman;
+    Color colorChessman;
+
 };
 
 int main() {
