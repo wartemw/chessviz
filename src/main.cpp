@@ -1,6 +1,9 @@
 //
 // Created by wartemw on 06.03.19.
 //
+#include <iostream>
+
+using namespace std;
 
 enum Color {
     BLACK, WHITE
