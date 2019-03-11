@@ -10,7 +10,10 @@ enum Chessman {
     KING, QUEEN, ROOK, K_NIGHT, BISHOP, PAWN, NON
 };
 
-int main()
-{
+class Cell {
+    
+};
+
+int main() {
     return 0;
 }
