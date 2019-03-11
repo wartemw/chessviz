@@ -6,6 +6,7 @@
 CC=g++
 CFLAGS=-c -Wall
 LDFLAGS=
+ARGV= ../res/input.txt
 EXECUTABLE_NAME=chessviz
 
 # Folders
@@ -42,11 +43,11 @@ create_directories:
 clean:
 	@rm -r -f $(BIN)
 
-run:
+run: build
 	@echo ""
 	@echo "-------------"
 	@echo ""
 	@echo "run "
 	@echo "-------------"
 	@echo ""
-	@./$(BIN)/$(EXECUTABLE_NAME)
+	@./$(BIN)/$(EXECUTABLE_NAME) $(ARGV)
