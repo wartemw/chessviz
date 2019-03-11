@@ -24,6 +24,11 @@ public:
 
     Cell(Chessman chessman, Color colorChessman) : chessman(chessman), colorChessman(colorChessman) {}
 
+    friend ostream &operator<<(ostream &os, const Cell &cell) {
+        os << cell.designation();
+        return os;
+    }
+
     char designation() const {
         switch (chessman) {
             case KING:
