@@ -14,6 +14,12 @@ class Cell {
 private:
     Chessman chessman;
     Color colorChessman;
+public:
+    Cell() : chessman(NON), colorChessman(BLACK) {}
+
+    Cell(Chessman chessman) : chessman(chessman), colorChessman(BLACK) {}
+
+    Cell(Chessman chessman, Color colorChessman) : chessman(chessman), colorChessman(colorChessman) {}
 
 };
 
