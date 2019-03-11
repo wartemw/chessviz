@@ -24,6 +24,24 @@ public:
 
     Cell(Chessman chessman, Color colorChessman) : chessman(chessman), colorChessman(colorChessman) {}
 
+    char designation() const {
+        switch (chessman) {
+            case KING:
+                return colorChessman == WHITE ? 'K' : 'k';
+            case QUEEN:
+                return colorChessman == WHITE ? 'Q' : 'q';
+            case ROOK:
+                return colorChessman == WHITE ? 'R' : 'r';
+            case K_NIGHT:
+                return colorChessman == WHITE ? 'N' : 'n';
+            case BISHOP:
+                return colorChessman == WHITE ? 'B' : 'b';
+            case PAWN:
+                return colorChessman == WHITE ? 'P' : 'p';
+            default:
+                return '_';
+        }
+    }
 };
 
 int main() {
