@@ -68,6 +68,30 @@ class Board {
 private:
     static const int NUMBER_OF_CELLS = 8;
     Cell cells[NUMBER_OF_CELLS][NUMBER_OF_CELLS];
+
+    void setDefault() {
+        cells[0][0] = Cell(ROOK, WHITE);
+        cells[0][1] = Cell(K_NIGHT, WHITE);
+        cells[0][2] = Cell(BISHOP, WHITE);
+        cells[0][3] = Cell(QUEEN, WHITE);
+        cells[0][4] = Cell(KING, WHITE);
+        cells[0][5] = Cell(BISHOP, WHITE);
+        cells[0][6] = Cell(K_NIGHT, WHITE);
+        cells[0][7] = Cell(ROOK, WHITE);
+        for (int i = 0; i < NUMBER_OF_CELLS; ++i)
+            cells[1][i] = Cell(PAWN, WHITE);
+
+        cells[7][0] = Cell(ROOK);
+        cells[7][1] = Cell(K_NIGHT);
+        cells[7][2] = Cell(BISHOP);
+        cells[7][3] = Cell(QUEEN);
+        cells[7][4] = Cell(KING);
+        cells[7][5] = Cell(BISHOP);
+        cells[7][6] = Cell(K_NIGHT);
+        cells[7][7] = Cell(ROOK);
+        for (int i = 0; i < NUMBER_OF_CELLS; ++i)
+            cells[6][i] = Cell(PAWN);
+    }
 };
 
 int main() {
