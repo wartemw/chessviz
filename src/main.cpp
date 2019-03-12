@@ -13,6 +13,20 @@ enum Chessman {
     KING, QUEEN, ROOK, K_NIGHT, BISHOP, PAWN, NON
 };
 
+struct MoveChessman {
+    string move;
+    char firstFigure = ' ';
+    char firstRow = ' ';
+    char firstCol = ' ';
+    char type = ' ';
+    char endFigure = ' ';
+    char endRow = ' ';
+    char endCol = ' ';
+    bool shah;
+    bool mat;
+    bool castling;
+};
+
 class Cell {
 private:
     Chessman chessman;
