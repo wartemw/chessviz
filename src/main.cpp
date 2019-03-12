@@ -68,6 +68,10 @@ class Board {
 private:
     static const int NUMBER_OF_CELLS = 8;
     Cell cells[NUMBER_OF_CELLS][NUMBER_OF_CELLS];
+public:
+    Board() {
+        setDefault();
+    }
 
     void setDefault() {
         cells[0][0] = Cell(ROOK, WHITE);
