@@ -243,6 +243,20 @@ private:
     }
 };
 
-int main() {
+int main(int argc, char *argv[]) {
+    Board board;
+    ifstream input;
+    input.open(argv[1]);
+    vector<MoveChessman> movesChessman;
+
+    IO::readCommands(board, &movesChessman, &input);
+
+    for (MoveChessman &moveChessman : movesChessman) {
+        board.moveChessman(moveChessman);
+        cout << moveChessman.move << endl << endl;
+        cout << board << endl << endl;
+    }
+
+    IO::writeBoard(board);
     return 0;
 }
