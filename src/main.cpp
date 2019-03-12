@@ -73,6 +73,20 @@ public:
         setDefault();
     }
 
+    friend ostream &operator<<(ostream &os, const Board &board) {
+        for (int i = NUMBER_OF_CELLS - 1; i >= 0; --i) {
+            os << i + 1 << ' ';
+            for (int j = 0; j < NUMBER_OF_CELLS; ++j) {
+                os << board.cells[i][j] << ' ';
+            }
+            os << '\n';
+        }
+        os << "  ";
+        for (char i = 'a'; i <= 'h'; ++i)
+            os << i << ' ';
+        return os;
+    }
+
     void setDefault() {
         cells[0][0] = Cell(ROOK, WHITE);
         cells[0][1] = Cell(K_NIGHT, WHITE);
