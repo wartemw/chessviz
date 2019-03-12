@@ -64,7 +64,10 @@ public:
 };
 
 class Board {
-    
+
+private:
+    static const int NUMBER_OF_CELLS = 8;
+    Cell cells[NUMBER_OF_CELLS][NUMBER_OF_CELLS];
 };
 
 int main() {
