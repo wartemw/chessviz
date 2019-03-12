@@ -96,6 +96,30 @@ public:
         for (int i = 0; i < NUMBER_OF_CELLS; ++i)
             cells[6][i] = Cell(PAWN);
     }
+
+    int changeNumb(char letter) {
+        if ('0' < letter && letter < '9')
+            return letter - '0' - 1;
+        if ('a' < letter && letter < 'z')
+            return letter - 'a';
+        return letter;
+    }
+
+    void moveChessman(MoveChessman &chessman) {
+        //cout << endl << changeNumb(chessman.firstRow) << " | " << changeNumb(chessman.firstCol) << endl;
+        //cout << changeNumb(chessman.endRow) << " | " << changeNumb(chessman.endCol) << endl << endl;
+        if(chessman.type == '-') {
+            Cell temp = cells[changeNumb(chessman.firstCol)][changeNumb(chessman.firstRow)];
+            cells[changeNumb(chessman.firstCol)][changeNumb(chessman.firstRow)] =
+                    cells[changeNumb(chessman.endCol)][changeNumb(chessman.endRow)];
+            cells[changeNumb(chessman.endCol)][changeNumb(chessman.endRow)] = temp;
+        }else {
+            cells[changeNumb(chessman.endCol)][changeNumb(chessman.endRow)] =
+                    cells[changeNumb(chessman.firstCol)][changeNumb(chessman.firstRow)];
+            Cell cell;
+            cells[changeNumb(chessman.firstCol)][changeNumb(chessman.firstRow)] = cell;
+        }
+    }
 };
 
 int main() {
