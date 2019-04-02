@@ -5,6 +5,11 @@
 #ifndef CHESSVIZ_IO_H
 #define CHESSVIZ_IO_H
 
+#include <fstream>
+#include <vector>
+#include <sstream>
+#include <regex>
+#include "Board.h"
 
 class IO {
 public:
