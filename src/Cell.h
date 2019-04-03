@@ -6,13 +6,18 @@
 #define CHESSVIZ_CELL_H
 
 #include <ostream>
-#include "Board.h"
 
+using namespace std;
+
+enum Color { BLACK, WHITE };
+
+enum Chessman { KING, QUEEN, ROOK, K_NIGHT, BISHOP, PAWN, NON };
 
 class Cell {
 private:
     Chessman chessman;
     Color colorChessman;
+
 public:
     Cell();
 
@@ -22,7 +27,7 @@ public:
 
     char designation() const;
 
-    friend ostream &operator<<(ostream &os, const Cell &cell);
+    friend ostream& operator<<(ostream& os, const Cell& cell);
 };
 
-#endif //CHESSVIZ_CELL_H
+#endif // CHESSVIZ_CELL_H

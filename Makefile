@@ -6,7 +6,7 @@
 CC=g++
 CFLAGS=-c -Wall
 LDFLAGS=
-ARGV= ../res/input.txt
+ARGV= res/input.txt
 EXECUTABLE_NAME=chessviz
 
 # Folders
@@ -16,7 +16,10 @@ OBJ=$(BIN)/obj
 
 # Files
 SOURCE_FILES=\
-	main.cpp
+	Cell.cpp\
+	Board.cpp\
+	IO.cpp\
+	main.cpp\
 
 ##########################################
 #    Don't touch anything below this     #
