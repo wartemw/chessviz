@@ -5,22 +5,24 @@
 #ifndef CHESSVIZ_IO_H
 #define CHESSVIZ_IO_H
 
-#include <fstream>
-#include <vector>
-#include <sstream>
-#include <regex>
 #include "Board.h"
+#include <fstream>
+#include <regex>
+#include <sstream>
+#include <vector>
 
 class IO {
 public:
-    static void writeBoard(Board board) {
+    static void writeBoard(Board board)
+    {
         ofstream oFile;
         oFile.open("../res/output.txt");
         oFile << board;
         oFile.close();
     }
 
-    static vector<std::string> split(const string &s, char delimiter) {
+    static vector<std::string> split(const string& s, char delimiter)
+    {
         vector<std::string> tokens;
         string token;
         istringstream tokenStream(s);
@@ -30,10 +32,12 @@ public:
         return tokens;
     }
 
-    static void readCommands(Board board, vector<MoveChessman> *movesChessman, istream *is) {
+    static void
+    readCommands(Board board, vector<MoveChessman>* movesChessman, istream* is)
+    {
         string line;
 
-        while (getline(*is, line)/*|| strcmp(line.c_str(), "exit")*/) {
+        while (getline(*is, line) /*|| strcmp(line.c_str(), "exit")*/) {
             vector<string> lineSplit = split(line, ' ');
 
             for (int i = 1; i < lineSplit.size(); ++i) {
@@ -43,12 +47,13 @@ public:
     }
 
 private:
-
-    static bool isRegular(const string line, const regex regex) {
+    static bool isRegular(const string line, const regex regex)
+    {
         return regex_search(line.c_str(), regex);
     }
 
-    static MoveChessman getMoveChessman(string line) {
+    static MoveChessman getMoveChessman(string line)
+    {
         MoveChessman moveChessman{};
         moveChessman.move = line;
 
@@ -70,12 +75,13 @@ private:
             moveChessman.endRow = line[5];
             moveChessman.endCol = line[6];
             if (line.length() == 8) {
-                if (line[7] == '#') moveChessman.mat = true;
-                if (line[7] == '+') moveChessman.shah = true;
+                if (line[7] == '#')
+                    moveChessman.mat = true;
+                if (line[7] == '+')
+                    moveChessman.shah = true;
             }
 
         } else if (isRegular(line, firstFigureMove)) {
-
             moveChessman.firstFigure = line[0];
             moveChessman.firstRow = line[1];
             moveChessman.firstCol = line[2];
@@ -83,12 +89,13 @@ private:
             moveChessman.endRow = line[4];
             moveChessman.endCol = line[5];
             if (line.length() == 7) {
-                if (line[6] == '#') moveChessman.mat = true;
-                if (line[6] == '+') moveChessman.shah = true;
+                if (line[6] == '#')
+                    moveChessman.mat = true;
+                if (line[6] == '+')
+                    moveChessman.shah = true;
             }
 
         } else if (isRegular(line, endFigureMove)) {
-
             moveChessman.firstRow = line[0];
             moveChessman.firstCol = line[1];
             moveChessman.type = line[2];
@@ -96,8 +103,10 @@ private:
             moveChessman.endRow = line[4];
             moveChessman.endCol = line[5];
             if (line.length() == 7) {
-                if (line[6] == '#') moveChessman.mat = true;
-                if (line[6] == '+') moveChessman.shah = true;
+                if (line[6] == '#')
+                    moveChessman.mat = true;
+                if (line[6] == '+')
+                    moveChessman.shah = true;
             }
 
         } else if (isRegular(line, pawnMove)) {
@@ -107,13 +116,14 @@ private:
             moveChessman.endRow = line[3];
             moveChessman.endCol = line[4];
             if (line.length() == 6) {
-                if (line[5] == '#') moveChessman.mat = true;
-                if (line[5] == '+') moveChessman.shah = true;
+                if (line[5] == '#')
+                    moveChessman.mat = true;
+                if (line[5] == '+')
+                    moveChessman.shah = true;
             }
         }
         return moveChessman;
     }
 };
 
-
-#endif //CHESSVIZ_IO_H
+#endif // CHESSVIZ_IO_H

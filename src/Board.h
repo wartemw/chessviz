@@ -5,17 +5,13 @@
 #ifndef CHESSVIZ_BOARD_H
 #define CHESSVIZ_BOARD_H
 
-#include <string>
 #include "Cell.h"
+#include <string>
 using namespace std;
 
-enum Color {
-    BLACK, WHITE
-};
+enum Color { BLACK, WHITE };
 
-enum Chessman {
-    KING, QUEEN, ROOK, K_NIGHT, BISHOP, PAWN, NON
-};
+enum Chessman { KING, QUEEN, ROOK, K_NIGHT, BISHOP, PAWN, NON };
 
 struct MoveChessman {
     string move;
@@ -31,19 +27,19 @@ struct MoveChessman {
     bool castling;
 };
 
-
-
 class Board {
-
 private:
     static const int NUMBER_OF_CELLS = 8;
     Cell cells[NUMBER_OF_CELLS][NUMBER_OF_CELLS];
+
 public:
-    Board() {
+    Board()
+    {
         setDefault();
     }
 
-    friend ostream &operator<<(ostream &os, const Board &board) {
+    friend ostream& operator<<(ostream& os, const Board& board)
+    {
         for (int i = NUMBER_OF_CELLS - 1; i >= 0; --i) {
             os << i + 1 << ' ';
             for (int j = 0; j < NUMBER_OF_CELLS; ++j) {
@@ -57,7 +53,8 @@ public:
         return os;
     }
 
-    void setDefault() {
+    void setDefault()
+    {
         cells[0][0] = Cell(ROOK, WHITE);
         cells[0][1] = Cell(K_NIGHT, WHITE);
         cells[0][2] = Cell(BISHOP, WHITE);
@@ -81,7 +78,8 @@ public:
             cells[6][i] = Cell(PAWN);
     }
 
-    int changeNumb(char letter) {
+    int changeNumb(char letter)
+    {
         if ('0' < letter && letter < '9')
             return letter - '0' - 1;
         if ('a' < letter && letter < 'z')
@@ -89,21 +87,29 @@ public:
         return letter;
     }
 
-    void moveChessman(MoveChessman &chessman) {
-        //cout << endl << changeNumb(chessman.firstRow) << " | " << changeNumb(chessman.firstCol) << endl;
-        //cout << changeNumb(chessman.endRow) << " | " << changeNumb(chessman.endCol) << endl << endl;
-        if(chessman.type == '-') {
-            Cell temp = cells[changeNumb(chessman.firstCol)][changeNumb(chessman.firstRow)];
-            cells[changeNumb(chessman.firstCol)][changeNumb(chessman.firstRow)] =
-                    cells[changeNumb(chessman.endCol)][changeNumb(chessman.endRow)];
-            cells[changeNumb(chessman.endCol)][changeNumb(chessman.endRow)] = temp;
-        }else {
-            cells[changeNumb(chessman.endCol)][changeNumb(chessman.endRow)] =
-                    cells[changeNumb(chessman.firstCol)][changeNumb(chessman.firstRow)];
+    void moveChessman(MoveChessman& chessman)
+    {
+        // cout << endl << changeNumb(chessman.firstRow) << " | " <<
+        // changeNumb(chessman.firstCol) << endl; cout <<
+        // changeNumb(chessman.endRow) << " | " << changeNumb(chessman.endCol)
+        // << endl << endl;
+        if (chessman.type == '-') {
+            Cell temp = cells[changeNumb(chessman.firstCol)]
+                             [changeNumb(chessman.firstRow)];
+            cells[changeNumb(chessman.firstCol)][changeNumb(chessman.firstRow)]
+                    = cells[changeNumb(chessman.endCol)]
+                           [changeNumb(chessman.endRow)];
+            cells[changeNumb(chessman.endCol)][changeNumb(chessman.endRow)]
+                    = temp;
+        } else {
+            cells[changeNumb(chessman.endCol)][changeNumb(chessman.endRow)]
+                    = cells[changeNumb(chessman.firstCol)]
+                           [changeNumb(chessman.firstRow)];
             Cell cell;
-            cells[changeNumb(chessman.firstCol)][changeNumb(chessman.firstRow)] = cell;
+            cells[changeNumb(chessman.firstCol)][changeNumb(chessman.firstRow)]
+                    = cell;
         }
     }
 };
 
-#endif //CHESSVIZ_BOARD_H
+#endif // CHESSVIZ_BOARD_H
