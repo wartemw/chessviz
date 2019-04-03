@@ -6,7 +6,7 @@
 CC=g++
 CFLAGS=-c -Wall
 LDFLAGS=
-ARGV= ../res/input.txt
+ARGV= res/input.txt
 EXECUTABLE_NAME=chessviz
 
 # Folders
