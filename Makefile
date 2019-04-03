@@ -16,7 +16,10 @@ OBJ=$(BIN)/obj
 
 # Files
 SOURCE_FILES=\
-	main.cpp
+	main.cpp\
+	Cell.cpp\
+	Board.cpp\
+	IO.cpp
 
 ##########################################
 #    Don't touch anything below this     #
