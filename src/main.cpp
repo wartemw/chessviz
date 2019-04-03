@@ -1,13 +1,8 @@
 //
 // Created by wartemw on 06.03.19.
 //
-#include "Board.h"
-#include "Cell.h"
-#include "IO.h"
-#include <fstream>
-#include <iostream>
-#include <list>
-#include <regex>
+
+#include "IO.cpp"
 
 int main(int argc, char* argv[])
 {
