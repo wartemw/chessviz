@@ -1,18 +1,7 @@
-dist: trusty
-sudo: required
+# Используем дистрибутив Ubuntu 16.04,
+# т.к. в образе предустановлен clang-format версии 7.
+dist: xenial
 
-language: cpp
-compiler: gcc
-
-addons:
-  apt:
-    sources:
-      - ubuntu-toolchain-r-test
-    packages:
-      - gcc-6
-      - g++-6
-      - cmake
-      - gcc -v && g++ -v && cmake --version
 script:
-  - sudo ln -s /usr/bin/gcc-6 /usr/local/bin/gcc
-  - sudo ln -s /usr/bin/g++-6 /usr/local/bin/g++
+  - git ls-files src/ | xargs clang-format -i && git diff --exit-code
+  - make
