@@ -5,7 +5,7 @@
 # Compiler options
 CC=g++
 CFLAGS=-c -Wall -std=c++11
-LDFLAGS=-s
+LDFLAGS=-std=c++11
 ARGV= res/input.txt
 EXECUTABLE_NAME=chessviz
 
