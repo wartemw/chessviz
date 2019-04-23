@@ -5,7 +5,7 @@
 # Compiler options
 CC=g++
 CFLAGS=-c -Wall
-LDFLAGS=
+LDFLAGS=-s
 ARGV= res/input.txt
 EXECUTABLE_NAME=chessviz
 
@@ -45,6 +45,8 @@ create_directories:
 
 clean:
 	@rm -r -f $(BIN)
+
+all: build
 
 run: build
 	@echo ""
