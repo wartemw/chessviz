@@ -54,12 +54,13 @@ int Board::changeNumb(char letter)
         return letter - 'a';
     return letter;
 }
-void Board::moveChessman(MoveChessman& chessman)
+bool Board::moveChessman(MoveChessman& chessman)
 {
     // cout << endl << changeNumb(chessman.firstRow) << " | " <<
     // changeNumb(chessman.firstCol) << endl; cout <<
     // changeNumb(chessman.endRow) << " | " << changeNumb(chessman.endCol) <<
     // endl << endl;
+    if(checkMove(chessman)) return false;
     if (chessman.type == '-') {
         Cell temp = cells[changeNumb(chessman.firstCol)]
                          [changeNumb(chessman.firstRow)];
@@ -75,4 +76,16 @@ void Board::moveChessman(MoveChessman& chessman)
         cells[changeNumb(chessman.firstCol)][changeNumb(chessman.firstRow)]
                 = cell;
     }
+    return true;
+}
+
+bool Board::checkMove(MoveChessman &chessman) {
+    switch (chessman.firstFigure) {
+        case PAWN:
+        case 32:
+            if(chessman.firstRow !=chessman.endRow) return false;
+            if(changeNumb(chessman.firstCol) < changeNumb(chessman.endCol) && changeNumb(chessman.endCol)) return false;
+            break;
+    }
+    return true;
 }
