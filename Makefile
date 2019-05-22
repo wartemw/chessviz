@@ -57,6 +57,7 @@ create_objects: $(SOURCE_FILES)
 	@echo "Created objects."
 
 create_directories:
+	@mkdir -p $(BIN)
 	@mkdir -p $(OBJ)
 
 test_files:
