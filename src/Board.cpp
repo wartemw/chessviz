@@ -60,7 +60,8 @@ bool Board::moveChessman(MoveChessman& chessman)
     // changeNumb(chessman.firstCol) << endl; cout <<
     // changeNumb(chessman.endRow) << " | " << changeNumb(chessman.endCol) <<
     // endl << endl;
-    if(checkMove(chessman)) return false;
+    if (checkMove(chessman))
+        return false;
     if (chessman.type == '-') {
         Cell temp = cells[changeNumb(chessman.firstCol)]
                          [changeNumb(chessman.firstRow)];
@@ -79,13 +80,17 @@ bool Board::moveChessman(MoveChessman& chessman)
     return true;
 }
 
-bool Board::checkMove(MoveChessman &chessman) {
+bool Board::checkMove(MoveChessman& chessman)
+{
     switch (chessman.firstFigure) {
-        case PAWN:
-        case 32:
-            if(chessman.firstRow !=chessman.endRow) return false;
-            if(changeNumb(chessman.firstCol) < changeNumb(chessman.endCol) && changeNumb(chessman.endCol)) return false;
-            break;
+    case PAWN:
+    case 32:
+        if (chessman.firstRow != chessman.endRow)
+            return false;
+        if (changeNumb(chessman.firstCol) < changeNumb(chessman.endCol)
+            && changeNumb(chessman.endCol))
+            return false;
+        break;
     }
     return true;
 }

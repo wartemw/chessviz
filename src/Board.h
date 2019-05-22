@@ -41,7 +41,7 @@ public:
 
     bool moveChessman(MoveChessman& chessman);
 
-    bool checkMove(MoveChessman &chessman);
+    bool checkMove(MoveChessman& chessman);
 };
 
 #endif // CHESSVIZ_BOARD_H
