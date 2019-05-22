@@ -13,7 +13,8 @@ SRC=src
 TEST_DIR=test
 BIN=bin
 OBJ=$(BIN)/obj
-LIB_GTEST=/usr/local/lib/libgtest.a /usr/local/lib/libgtest_main.a -lpthread
+#LIB_GTEST=/usr/local/lib64/libgtest.a /usr/local/lib64/libgtest_main.a -lpthread
+LIB_GTEST=libs/ctest/libgtest.a libs/ctest/libgtest_main.a -lpthread
 
 # Files
 SOURCE_FILES=\
@@ -42,7 +43,7 @@ test: create_directories create_executable_test
 	@./$(BIN)/$(EXECUTABLE_NAME)_test
 
 create_executable_main: create_objects main.o
-	@$(CC) $(LDFLAGS) $(LIB_GTEST) $(OBJECT_FILES) $(OBJ)/main.o -o $(BIN)/$(EXECUTABLE_NAME)
+	@$(CC) $(LDFLAGS) $(OBJECT_FILES) $(OBJ)/main.o -o $(BIN)/$(EXECUTABLE_NAME)
 	@echo "Created executable."
 
 create_executable_test: create_objects main_test.o
