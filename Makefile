@@ -14,7 +14,7 @@ TEST_DIR=test
 BIN=bin
 OBJ=$(BIN)/obj
 #LIB_GTEST=/usr/local/lib64/libgtest.a /usr/local/lib64/libgtest_main.a -lpthread
-LIB_GTEST=libs/ctest/libgtest.a libs/ctest/libgtest_main.a -lpthread
+LIB_GTEST=libs/gtest/libgtest.a libs/gtest/libgtest_main.a -lpthread
 
 # Files
 SOURCE_FILES=\
@@ -68,6 +68,8 @@ test_files:
 
 clean:
 	@rm -r -f $(BIN)
+
+all: build
 
 run: build
 	@echo ""
