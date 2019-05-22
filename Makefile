@@ -23,6 +23,9 @@ SOURCE_FILES=\
 	IO.cpp\
 
 TEST_FILES=\
+	Cell_test.cpp\
+	Board_test.cpp\
+	IO_test.cpp\
 
 main.o:
 	@$(CC) $(LDFLAGS) -c $(SRC)/main.cpp -o $(OBJ)/main.o
