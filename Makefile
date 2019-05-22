@@ -69,7 +69,7 @@ test_files:
 clean:
 	@rm -r -f $(BIN)
 
-all: build
+all: run
 
 run: build
 	@echo ""
