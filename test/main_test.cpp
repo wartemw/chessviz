@@ -6,8 +6,9 @@
 #include "../src/Cell.h"
 #include "../src/IO.h"
 
-TEST (Board, changeNumb) {
-    Board board;
-EXPECT_EQ (board.changeNumb('1'), 1);
-EXPECT_EQ (board.changeNumb('a'), 1);
+int main(int argc, char* argv[])
+{
+    ::testing::InitGoogleTest(&argc,argv);
+    return RUN_ALL_TESTS();
 }
+
